@@ -1,0 +1,24 @@
+#homeScreen_container {
+    height: 100vh;
+    background: #402a50;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 2rem;
+    padding-top: 3.5rem;
+}
+
+#homeScreen_container  h1 {
+    color: white;
+    text-transform: uppercase;
+}
+
+.homeScreen_card {   
+    width: 25rem;
+    height: 25rem;
+    border-radius: 40px;
+    background: #402a50;
+    box-shadow: -35px 35px 70px #2c1d37,
+                35px -35px 70px #543769;
+}
