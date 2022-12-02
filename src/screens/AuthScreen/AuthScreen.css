@@ -1,6 +1,6 @@
-#homeScreen_container {
+#authScreen_container {
     height: 100vh;
-    background: #402a50;
+    background: #2e2e2e;
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
@@ -9,16 +9,16 @@
     padding-top: 3.5rem;
 }
 
-#homeScreen_container  h1 {
+#authScreen_container  h1 {
     color: white;
     text-transform: uppercase;
 }
 
-.homeScreen_card {   
+.authScreen_card {   
     width: 25rem;
     height: 25rem;
-    border-radius: 40px;
-    background: #402a50;
-    box-shadow: -35px 35px 70px #2c1d37,
-                35px -35px 70px #543769;
+    border-radius: 1.5rem;
+    background: #2e2e2e;
+    box-shadow:  14px 14px 28px #1c1c1c,
+             -14px -14px 28px #404040;
 }

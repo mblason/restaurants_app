@@ -15,9 +15,8 @@ function App() {
         <Route path="/" element={<AuthScreen />} />
         <Route path="/activate/:token" element={<LoadingScreen />} />
         <Route path="/validation" element={<LoadingScreen />} />
-
         {/* HOME */}
-        <Route 
+        <Route
           path="/home"
           element={
             <ProtectedRoute>
@@ -25,8 +24,31 @@ function App() {
             </ProtectedRoute>
           }
         />
-
         {/* RESTAURANTS CRUD */}
+{/*         <Route
+          path="/restaurant/:id"
+          element={
+            <ProtectedRoute>
+              <RestoDetail />
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="/myRestaurants"
+          element={
+            <ProtectedRoute>
+              <MyResto />
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="/myFavourites"
+          element={
+            <ProtectedRoute>
+              <MyFavourites />
+            </ProtectedRoute>
+          }
+        /> */}
 
         {/* MISC & ERROR */}
         <Route path="/error" element={<ErrorScreen />} />

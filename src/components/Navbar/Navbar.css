@@ -1,0 +1,110 @@
+.navbar-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    height: 9vh;
+    position: fixed;
+    top: 0%;
+    right: 2.5%;
+    margin-top: 1rem;
+    background-color: none;
+    z-index: 10;
+}
+
+.sandwich-navbar {
+    width: 40px;
+    cursor: pointer;
+}
+
+.icon-navbar {
+    margin: 0.5rem 2rem 0 0;
+    width: 27px;
+    cursor: pointer;
+}
+
+.close-navbar {
+    width: 20px;
+    cursor: pointer;
+}
+
+.side-navbar {
+    -webkit-animation: fade-in-right 1s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
+    animation: fade-in-right 1s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
+    padding: 3rem;
+    background-color: #443b4a;
+    position: fixed;
+    top:0%;
+    right: 0%;
+    z-index: 10;
+    width: 22vw;
+    min-height: 100vh;    
+    box-shadow:  20px 20px 60px #29242d,
+                -20px -20px 60px #5f5267;
+}
+
+.header-side-navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.Navbar-auth {
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;    
+    margin-top: 3rem;
+}
+
+.Navbar-auth a {
+    color: white;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    width: 14rem;
+} 
+
+.Navbar-auth a span {
+    margin-top: 0.4rem;
+} 
+
+@media (max-width: 992px) {
+    .navbar-container {
+        padding: 0 1rem;
+        height: 7vh;
+    }
+    .sandwich-navbar {
+        width: 35px;
+    }
+
+    .side-navbar {
+        width: 100vw;
+    }
+}
+
+@-webkit-keyframes fade-in-right {
+    0% {
+        -webkit-transform: translateX(50px);
+        transform: translateX(50px);
+        opacity: 0;
+    }
+
+    100% {
+        -webkit-transform: translateX(0);
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+@keyframes fade-in-right {
+    0% {
+        -webkit-transform: translateX(50px);
+        transform: translateX(50px);
+        opacity: 0;
+    }
+
+    100% {
+        -webkit-transform: translateX(0);
+        transform: translateX(0);
+        opacity: 1;
+    }
+}

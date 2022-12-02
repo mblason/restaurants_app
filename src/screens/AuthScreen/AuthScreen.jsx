@@ -62,9 +62,9 @@ export default function HomeScreen() {
   };
 
   return (
-    <div id="homeScreen_container">
+    <div id="authScreen_container">
       <h1>Resto App</h1>
-      <div className="homeScreen_card">
+      <div className="authScreen_card">
         <h2>Login</h2>
         {msgActivateAccount && (
           <p className="email-message">
