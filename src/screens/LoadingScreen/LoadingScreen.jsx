@@ -21,7 +21,7 @@ export default function LoadingScreen() {
         new URLSearchParams(location.search)
       );
       login(accessToken.callbackToken);
-      navigate("/", { replace: true });
+      navigate("/home", { replace: true });
     }
   }, [token, navigate, location.search, login]);
 

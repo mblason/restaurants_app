@@ -17,10 +17,11 @@ export const AuthContextProvider = ({ children }) => {
   };
 
   const getUser = () => {
-    getCurrentUser().then((user) => {
-      setCurrentUser(user);
-      setIsAuthFetched(true);
-    });
+    getCurrentUser()
+      .then((user) => {
+        setCurrentUser(user);
+        setIsAuthFetched(true);
+      });
   };
 
   useEffect(() => {
