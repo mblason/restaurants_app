@@ -1,0 +1,29 @@
+#favouritesScreen-container {
+    background: #2e2e2e;
+    color: white;
+    min-height: 100vh;
+}
+
+#favouritesScreen-container h2 {
+    text-align: center;
+    padding: 1rem;
+}
+
+.card-wrapper {
+    position: relative;
+    width: fit-content;
+}
+
+.actions-wrapper {
+    width: 82%;
+    position: absolute;
+    bottom: 5%;
+    right: 5%;
+    display: flex;
+    justify-content: flex-end;
+    gap: 2rem;
+}
+
+.trash-icon {
+    width: 27px;
+}

@@ -7,6 +7,10 @@
     padding: 4rem 2rem 2.5rem 2.5rem;
 }
 
+.fav-img {
+    width: 27px;
+}
+
 .resto-img {
     width: 50%;
     height: 100%;
@@ -28,6 +32,12 @@
              -14px -14px 28px #404040;
 }
 
+.resto-header-wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
 .resto-info-wrapper span {
     margin-left: 1rem;
 }
@@ -37,6 +47,11 @@
     line-height: 2rem;
     list-style: none;
 }
+
 .icon-resto {
+    width: 22px;
+}
+
+.fav-icon {
     width: 27px;
 }

@@ -1,9 +1,10 @@
 #homeScreen-container {
-    background:  #2e2e2e;
+    background: #2e2e2e;
     color: white;
+    min-height: 100vh;
 }
 
-#homeScreen-container h2{
+#homeScreen-container h2 {
     text-align: center;
     padding: 1rem;
 }

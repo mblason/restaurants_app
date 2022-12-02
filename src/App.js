@@ -4,6 +4,7 @@ import ProtectedRoute from "./components/ProtectedRoute/ProtectedRoute";
 /* SCREENS */
 import AuthScreen from "./screens/AuthScreen/AuthScreen";
 import ErrorScreen from "./screens/ErrorScreen/ErrorScreen";
+import FavouritesScreen from "./screens/FavouritesScreen/FavouritesScreen";
 import HomeScreen from "./screens/HomeScreen/HomeScreen";
 import LoadingScreen from "./screens/LoadingScreen/LoadingScreen";
 import RestaurantDetailScreen from "./screens/RestaurantDetailScreen/RestaurantDetailScreen";
@@ -43,14 +44,17 @@ function App() {
             </ProtectedRoute>
           }
         />
+         */}
+         
+        {/* USERS FAVS */}
         <Route
           path="/myFavourites"
           element={
             <ProtectedRoute>
-              <MyFavourites />
+              <FavouritesScreen />
             </ProtectedRoute>
           }
-        /> */}
+        />
 
         {/* MISC & ERROR */}
         <Route path="/error" element={<ErrorScreen />} />
