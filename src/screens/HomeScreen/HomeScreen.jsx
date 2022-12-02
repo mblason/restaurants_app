@@ -17,20 +17,16 @@ export default function HomeScreen() {
     .catch(err => navigate('/error'))
   }, [navigate])
   
-  console.log(restaurants);
   return (
     <div id="homeScreen-container">
-      <h2>See all our restaurants!</h2>    
+      <h2>Discover our restaurants</h2>    
       <Navbar /> 
       {restaurants.length !== 0 && 
         <div className="cards-container">         
           {restaurants.map(resto =>
             <RestaurantCard
               key={resto.id}
-              images={resto.images}
-              name={resto.name}
-              neighborhood={resto.neighborhood}
-              id={resto.id}
+              {...resto}
             />)}        
         </div>
       }

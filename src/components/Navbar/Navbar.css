@@ -31,15 +31,15 @@
     -webkit-animation: fade-in-right 1s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
     animation: fade-in-right 1s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
     padding: 3rem;
-    background-color: #443b4a;
+    background-color: #2e2e2e;
     position: fixed;
     top:0%;
     right: 0%;
     z-index: 10;
     width: 22vw;
     min-height: 100vh;    
-    box-shadow:  20px 20px 60px #29242d,
-                -20px -20px 60px #5f5267;
+    box-shadow:  14px 14px 28px #1c1c1c,
+             -14px -14px 28px #404040;
 }
 
 .header-side-navbar {

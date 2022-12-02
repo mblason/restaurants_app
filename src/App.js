@@ -6,6 +6,7 @@ import AuthScreen from "./screens/AuthScreen/AuthScreen";
 import ErrorScreen from "./screens/ErrorScreen/ErrorScreen";
 import HomeScreen from "./screens/HomeScreen/HomeScreen";
 import LoadingScreen from "./screens/LoadingScreen/LoadingScreen";
+import RestaurantDetailScreen from "./screens/RestaurantDetailScreen/RestaurantDetailScreen";
 
 function App() {
   return (
@@ -25,14 +26,15 @@ function App() {
           }
         />
         {/* RESTAURANTS CRUD */}
-{/*         <Route
+        <Route
           path="/restaurant/:id"
           element={
             <ProtectedRoute>
-              <RestoDetail />
+              <RestaurantDetailScreen />
             </ProtectedRoute>
           }
         />
+        {/*
         <Route
           path="/myRestaurants"
           element={
