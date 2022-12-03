@@ -104,7 +104,7 @@ export default function RestaurantDetailScreen() {
               className="icon-resto"
             />
             <span>Reviews:</span>
-            <div>No reviews yet</div>
+            <div id="reviews-container">No reviews yet</div>
           </div>
         </div>
       </div>

@@ -1,5 +1,5 @@
 #authScreen_container {
-    height: 100vh;
+    min-height: 100vh;
     background: #2e2e2e;
     display: flex;
     flex-direction: column;
@@ -10,16 +10,88 @@
     min-height: 100vh;
 }
 
-#authScreen_container  h1 {
+#authScreen_container h1 {
     color: white;
     text-transform: uppercase;
 }
 
+#authScreen_container h2, .auth-link {
+    color: white;
+}
+
+.auth-link {
+    width: 13rem;
+    margin-bottom: 0;
+    cursor: pointer;
+}
+
 .authScreen_card {   
-    width: 25rem;
-    height: 25rem;
+    width: 20rem;
+    padding: 2rem 1rem;
     border-radius: 1.5rem;
     background: #2e2e2e;
     box-shadow:  14px 14px 28px #1c1c1c,
              -14px -14px 28px #404040;
+    display: flex;
+    justify-content: center;
+}
+
+.authScreen_card form {
+    width: 15rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+}
+
+.authScreen_card form input {
+    width: 15rem;
+}
+
+#auth-btns-wrapper button, .google-button { 
+    width: 15rem;
+    color: white;
+    padding: 0.5rem 1rem;
+    border-radius: 0.5rem;
+    background: #2e2e2e;
+    box-shadow:  5px 5px 10px #1c1c1c,
+                -5px -5px 10px #404040;
+}
+
+#auth-btns-wrapper button {
+    height: 3.5rem;
+}
+
+.google-button {
+    display: flex;
+    gap: 0.8rem;
+    align-items: center;
+    cursor: pointer;
+}
+
+.google-button div, .google-button p {
+    height: 1.7rem;
+}
+
+.google-button p {
+    padding-top: 0.5rem;
+}
+.google-icon {
+    width: 27px;
+}
+
+.or-line {
+    color: rgb(174, 172, 172);
+    font-size: small;
+    width: 80%;
+    text-align: center;
+    border-bottom: 1px solid rgb(174, 172, 172);
+    line-height: 0.1em;
+    margin: 2rem auto 2rem;
+}
+
+.or-line span {
+    background: #2e2e2e;
+    padding: 0 10px;
 }

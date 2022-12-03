@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import "./ErrorScreen.css";
-import errorImg from "../../assets/images/error-img.png";
+import errorImg from "../../assets/images/misc/error-img.png";
 
 export default function ErrorScreen() {
   return (

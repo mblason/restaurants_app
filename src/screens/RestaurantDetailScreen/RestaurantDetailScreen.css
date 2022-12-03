@@ -1,10 +1,11 @@
 #restaurant-detail-container {
     background: #2e2e2e;
     color: white;
-    height: 100vh;
+    min-height: 100vh;
     display: flex;
-    gap: 4rem;
-    padding: 4rem 2rem 2.5rem 2.5rem;
+    flex-wrap: wrap;
+    gap: 2rem;
+    padding: 3.5rem 2rem 2rem 2.5rem;
 }
 
 .fav-img {
@@ -12,8 +13,8 @@
 }
 
 .resto-img {
-    width: 50%;
-    height: 100%;
+    width: 35rem;
+    height: 35rem;
     background-repeat: no-repeat;
     background-size: cover;
     border-radius: 1.5rem;
@@ -23,13 +24,14 @@
     display: flex;
     flex-direction: column;
     gap: 1.5rem;
-    width: 50%;
-    height: 100%;    
+    width: 35rem;
+    height: 35rem;    
     padding: 1rem 2rem;
     border-radius: 1.5rem;
     background: #2e2e2e;
     box-shadow:  14px 14px 28px #1c1c1c,
              -14px -14px 28px #404040;
+    overflow-y: scroll;
 }
 
 .resto-header-wrapper {
@@ -43,10 +45,19 @@
 }
 
 .resto-info-wrapper ul {
-    margin-left: 0.8rem;
+    margin-top: 1rem;
+    margin-left: 0.5rem;
     line-height: 2rem;
     list-style: none;
 }
+
+#reviews-container {
+    margin-top: 1rem;
+    margin-left: 2.3rem;
+    line-height: 2rem;
+    list-style: none;
+}
+
 
 .icon-resto {
     width: 22px;
@@ -54,4 +65,41 @@
 
 .fav-icon {
     width: 27px;
+    cursor: pointer;
+}
+
+@media (max-width: 992px) {
+
+    #restaurant-detail-container {
+        gap: 1.5rem;
+    }
+    
+    .resto-img {
+        width: 18rem;
+        height: 18rem;
+    }
+
+    .resto-info {
+        width: 18rem;
+        height: fit-content;  
+        overflow-y: hidden;
+    }
+}
+
+::-webkit-scrollbar {
+    width: 5px;
+    border-radius: 10px;
+    margin-left: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: #2e2e2e;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #888;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
 }

@@ -26,4 +26,14 @@
 
 .action-icon {
     width: 27px;
+    cursor: pointer;
+}
+
+@media (max-width: 992px) {
+
+    #favouritesScreen-container h2 {
+        margin-left: 1rem;
+        padding-bottom: 0;
+        width: 5rem;
+    }
 }

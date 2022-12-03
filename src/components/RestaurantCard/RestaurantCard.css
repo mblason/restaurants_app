@@ -3,12 +3,12 @@
     color: white;
     text-decoration: none;
     width: 20rem;
-    height: 22rem;
+    height: 25rem;
     display: flex;
     align-items: center;
     flex-direction: column;   
     gap: 0.8rem;
-    padding: 1.5rem 1rem;
+    padding: 1.5rem 1rem 2.5rem 1rem;
     border-radius: 1.5rem;
     background: #2e2e2e;
     box-shadow:  14px 14px 28px #1c1c1c,
@@ -40,6 +40,7 @@
     font-weight: 500;
     height: 10rem;
     padding-left: 0.5rem;
+    gap: 1rem;
 }
 
 .card-content h6 {

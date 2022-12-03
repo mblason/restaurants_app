@@ -19,7 +19,7 @@ export default function HomeScreen() {
   
   return (
     <div id="homeScreen-container">
-      <h2>Discover our restaurants</h2>    
+      <h2>Welcome! Discover our restaurants</h2>    
       <Navbar /> 
       {restaurants.length !== 0 && 
         <div className="cards-container">         

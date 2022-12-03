@@ -11,3 +11,20 @@
 .form-restaurant-container h2 {
     padding: 1rem;
 }
+
+@media (max-width: 992px) {
+
+    .form-restaurant-container {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: flex-start;
+    }
+
+    .form-restaurant-container h2 {
+
+        padding-bottom: 0;
+        width: 14rem;
+
+    }
+}

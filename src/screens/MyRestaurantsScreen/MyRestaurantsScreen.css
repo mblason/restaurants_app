@@ -8,3 +8,38 @@
     text-align: center;
     padding: 1rem;
 }
+
+.add-icon {
+    width: 30px;
+}
+
+#create-resto-link {
+    text-decoration: none;
+    color: white;
+    height: fit-content;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+#create-resto-link span {
+    font-weight: 500;
+    font-size: 1.1rem;
+}
+
+@media (max-width: 992px) {
+
+    #myRestaurantsScreen-container h2 {
+        margin-left: 1rem;
+        padding-bottom: 0;
+        width: 5rem;
+    }
+
+    #create-resto-link {
+        display: flex;
+        justify-content: flex-start;
+        margin-left: 2rem;
+        margin-top: 1rem;
+    }
+}

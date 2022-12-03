@@ -1,5 +1,5 @@
 import React, { useContext, useState } from 'react';
-import googleIcon from '../../assets/images/google-icon.png';
+import googleIcon from '../../assets/images/misc/google-icon.png';
 import Button from '../../components/Button/Button';
 import Input from '../../components/Input/Input';
 import AuthContext from '../../contexts/AuthContext';
@@ -65,7 +65,6 @@ export default function HomeScreen() {
     <div id="authScreen_container">
       <h1>Resto App</h1>
       <div className="authScreen_card">
-        <h2>Login</h2>
         {msgActivateAccount && (
           <p className="email-message">
             Please, check your email to activate your account.
@@ -85,7 +84,7 @@ export default function HomeScreen() {
                 placeholder="Email"
                 id="email"
                 name="email"
-                error={mongoError.email || (mongoError.message ? true : '')}
+                error={mongoError.email || (mongoError.message ? true : "")}
                 onChange={handleChangeInputs}
               />
               <Input
@@ -118,24 +117,26 @@ export default function HomeScreen() {
             </>
           )}
 
-          <Button text={!isRegister ? "LOGIN" : "REGISTER"} />
+          <div id="auth-btns-wrapper">
+            <Button text={!isRegister ? "Login" : "Register"} />
 
-          <div className="google-button" onClick={handleAuthGoogle}>
-            <div className="flex-div">
-              <img className="google-icon" src={googleIcon} alt="google icon" />
+            <p className="or-line">
+              <span>OR</span>
+            </p>
+
+            <div className="google-button" onClick={handleAuthGoogle}>
+              <div>
+                <img className="google-icon" src={googleIcon} alt="google icon" />
+              </div>
               <p>{!isRegister ? "Login" : "Register"} with Google</p>
             </div>
           </div>
-
-          {!isRegister ? 
-            (<p className="login-link" onClick={handleRegisterOrLogin}>
-                Don't have an account? <span>Register here!</span>
-            </p>)
-            :
-            (<p className="register-link" onClick={handleRegisterOrLogin}>
-                Already have an account? <span>Login here!</span>
-            </p>)
-          }
+          
+          <p className="auth-link" onClick={handleRegisterOrLogin}>
+            {!isRegister
+              ? "Don't have an account? Register here!"
+              : "Already have an account? Login here!"}
+          </p>
         </form>
       </div>
     </div>

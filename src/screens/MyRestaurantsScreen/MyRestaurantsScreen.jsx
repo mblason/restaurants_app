@@ -37,9 +37,9 @@ export default function MyRestaurantsScreen() {
     return (
       <div id="myRestaurantsScreen-container">
         <h2>Your posted restaurants</h2>
-        <Link to="/restaurant/create">
-          <img src={addIcon} alt="addIcon" className="icon-navbar" />
-          <span>Create</span>
+        <Link to="/restaurant/create" id="create-resto-link">
+          <img src={addIcon} alt="addIcon" className="add-icon" />
+          <span>Post</span>
         </Link>
         <Navbar />
         {myRestaurants.length !== 0 && (

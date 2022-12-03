@@ -1,12 +1,12 @@
 import React, { useContext, useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import trashIcon from '../../assets/images/users/trash-icon.png';
 import Navbar from '../../components/Navbar/Navbar';
 import RestaurantCard from '../../components/RestaurantCard/RestaurantCard';
 import AuthContext from '../../contexts/AuthContext';
 import { getAllFavs } from '../../services/User.services';
-import './FavouritesScreen.css';
-import trashIcon from '../../assets/images/users/trash-icon.png';
 import { deleteFav } from './../../services/User.services';
+import './FavouritesScreen.css';
 
 export default function FavouritesScreen() {
     const [favourites, setFavourites] = useState([]);
@@ -36,20 +36,20 @@ export default function FavouritesScreen() {
 
     return (
         <div id="favouritesScreen-container">
-        <h2>Your favourites restaurants</h2>
-        <Navbar />
-        {favourites.length !== 0 && (
-            <div className="cards-container">
-            {favourites.map((fav) => (
-            <div className='card-wrapper'>
-                <RestaurantCard key={fav.id} {...fav.restaurant} />
-                <div className="actions-wrapper" onClick={handleDeleteFavourite}>
-                    <img id={`${fav.user},${fav.restaurant.id}`} src={trashIcon} alt="trashIcon" className="trash-icon" />
+            <h2>Your favourites restaurants</h2>
+            <Navbar />
+            {favourites.length !== 0 && (
+                <div className="cards-container">
+                {favourites.map((fav) => (
+                <div className='card-wrapper'>
+                    <RestaurantCard key={fav.id} {...fav.restaurant} />
+                    <div className="actions-wrapper" onClick={handleDeleteFavourite}>
+                        <img id={`${fav.user},${fav.restaurant.id}`} src={trashIcon} alt="trashIcon" className="action-icon" />
+                    </div>
                 </div>
-            </div>
-            ))}
-            </div>
-        )}
+                ))}
+                </div>
+            )}
         </div>
     );
 }
