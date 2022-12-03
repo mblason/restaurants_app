@@ -1,0 +1,47 @@
+.form-restaurant-create-edit {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+    width: 25rem;
+    padding: 1.5rem 0rem;
+}
+
+.error-feedback {
+    width: 100%;
+    margin-top: -1.25rem;
+    font-size: .875em;
+    color: #dc3545;
+}
+
+.form-restaurant-create-edit div {
+   width: 100%;
+}
+
+.form-restaurant-create-edit input {
+    width: 100%;
+}
+
+.form-restaurant-create-edit button{
+    border: none;
+    color: white;
+    width: 50%;
+    padding: 1rem;
+    margin-top: 1rem;
+    font-weight: 600;
+    border-radius: 1.5rem;
+    background: #2e2e2e;
+    box-shadow:  5px 5px 10px #1c1c1c,
+                -5px -5px 10px #404040;
+    
+}
+
+@media (max-width: 992px) {
+
+    .form-restaurant-create-edit {
+        width: 100vw;
+        padding: 1rem;
+        margin-right: 1rem;
+    }
+}

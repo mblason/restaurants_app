@@ -1,0 +1,13 @@
+.form-restaurant-container {
+    background: #2e2e2e;
+    color: white;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.form-restaurant-container h2 {
+    padding: 1rem;
+}

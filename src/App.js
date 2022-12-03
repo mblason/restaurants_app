@@ -7,7 +7,9 @@ import ErrorScreen from "./screens/ErrorScreen/ErrorScreen";
 import FavouritesScreen from "./screens/FavouritesScreen/FavouritesScreen";
 import HomeScreen from "./screens/HomeScreen/HomeScreen";
 import LoadingScreen from "./screens/LoadingScreen/LoadingScreen";
+import MyRestaurantsScreen from "./screens/MyRestaurantsScreen/MyRestaurantsScreen";
 import RestaurantDetailScreen from "./screens/RestaurantDetailScreen/RestaurantDetailScreen";
+import RestaurantFormScreen from "./screens/RestaurantFormScreen/RestaurantFormScreen";
 
 function App() {
   return (
@@ -35,17 +37,31 @@ function App() {
             </ProtectedRoute>
           }
         />
-        {/*
         <Route
           path="/myRestaurants"
           element={
             <ProtectedRoute>
-              <MyResto />
+              <MyRestaurantsScreen />
             </ProtectedRoute>
           }
         />
-         */}
-         
+        <Route
+          path="/restaurant/create"
+          element={
+            <ProtectedRoute>
+              <RestaurantFormScreen />
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="/restaurant/edit"
+          element={
+            <ProtectedRoute>
+              <RestaurantFormScreen />
+            </ProtectedRoute>
+          }
+        />
+
         {/* USERS FAVS */}
         <Route
           path="/myFavourites"
@@ -55,7 +71,6 @@ function App() {
             </ProtectedRoute>
           }
         />
-
         {/* MISC & ERROR */}
         <Route path="/error" element={<ErrorScreen />} />
         <Route path="*" element={<Navigate to="/error" replace />} />

@@ -8,6 +8,3 @@ export const getOneFav = (restaurant, user) => authHttp.get(`/favourite/${restau
 export const createFav = (body) => authHttp.post("/favourite/create", body);
 
 export const deleteFav = (restaurant, user) => authHttp.delete(`/favourite/delete/${restaurant}/${user}`);
-
-
-//export const getAllFavs = (id) => authHttp.get(`/restaurant/${id}`);
