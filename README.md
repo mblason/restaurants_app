@@ -12,8 +12,7 @@ Available on Desktop and Mobile.
 ## Installation & Run
 
 ### Download this project
-Go get [/mblason/restaurants_app](https://github.com/mblason/restaurants_app)
-
+Fork and clone this repository. [Instructions here.](https://docs.github.com/es/get-started/quickstart/fork-a-repo)
 
 ### Run
 To run the App execute the following command:
