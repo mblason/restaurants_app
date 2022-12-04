@@ -15,7 +15,7 @@ Available on Desktop and Mobile.
 Fork and clone this repository. [Instructions here.](https://docs.github.com/es/get-started/quickstart/fork-a-repo)
 
 ### Install dependencies
-Install all the dependencies executing the following command:
+Install all the dependencies by executing the following command:
 ```bash
 npm install
 ```
