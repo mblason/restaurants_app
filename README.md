@@ -12,12 +12,11 @@ Available on Desktop and Mobile.
 ## Installation & Run
 
 ### Download this project
-```bash
 Go get [/mblason/restaurants_app](https://github.com/mblason/restaurants_app)
-```
+
 
 ### Run
-To run the App execute the following command.
+To run the App execute the following command:
 ```bash
 npm start
 ```
@@ -25,18 +24,18 @@ Open [http://localhost:3000](http://localhost:3000) to view it in your browser. 
 
 ## Main Structure
 ```  
-├── public               // Index HTML of our App 
+├── public               // App's HTML
 ├── src
 │   ├── assets           // Used images and icons 
-│   ├── components       // Components
-│   ├── contexts   
-│   ├── helpers   
-│   ├── screens   
-│   ├── services   
-│   └── store
-├── app.css
-├── app.js
-└── index.js
+│   ├── components       // Reusable components
+│   ├── contexts         // Authentication context
+│   ├── helpers          // JWT verify function
+│   ├── screens          // All App's screens
+│   ├── services         // API's requests
+│   └── store            // JWT storage
+├── app.css              // App's general style
+├── app.js               // App's routes 
+└── index.js             // App's main structure
 ```
 
 ### Languages and Tools
