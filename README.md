@@ -14,6 +14,12 @@ Available on Desktop and Mobile.
 ### Download this project
 Fork and clone this repository. [Instructions here.](https://docs.github.com/es/get-started/quickstart/fork-a-repo)
 
+### Install dependencies
+Install all the dependencies executing the following command:
+```bash
+npm install
+```
+
 ### Run
 To run the App execute the following command:
 ```bash
