@@ -27,7 +27,7 @@ npm start
 ```
 Open [http://localhost:3000](http://localhost:3000) to view it in your browser. The page will reload when you make changes.
 
-## Main Structure
+## Structure
 ```  
 ├── public               // App's HTML
 ├── src
@@ -43,7 +43,7 @@ Open [http://localhost:3000](http://localhost:3000) to view it in your browser. 
 └── index.js             // App's main structure
 ```
 
-### Languages and Tools
+## Languages and Tools
 
 * HTML
 * CSS 
