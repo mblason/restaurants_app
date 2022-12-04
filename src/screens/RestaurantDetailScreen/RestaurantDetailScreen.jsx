@@ -123,7 +123,33 @@ export default function RestaurantDetailScreen() {
                 className="icon-resto"
               />
               <span>Reviews:</span>
-              <div id="reviews-container">No reviews yet</div>
+              {restaurant.reviews.length === 0 && (
+                <div className="reviews-container">
+                  <p>No reviews yet!</p>
+                </div>
+              )}
+              {restaurant.reviews.length > 0 &&
+                restaurant.reviews.map((review) => (
+                  <div id="reviews-container">
+                    <span className="star-wraper">
+                      {Array(review.rating)
+                        .fill("")
+                        .map(() => (
+                          <img
+                            src={reviewWhiteIcon}
+                            alt="star-logo"
+                            className="star-logo"
+                          />
+                        ))}
+                    </span>
+                    <small className='review-name-date'>
+                      {review.name} - {review.date}
+                    </small>
+                    <div>
+                      <small className='review-comments'>❝ {review.comments} ❞</small>
+                    </div>
+                  </div>
+                ))}
             </div>
           </div>
         </>

@@ -63,6 +63,19 @@
     width: 22px;
 }
 
+.star-logo {
+    width: 18px;
+}
+
+#reviews-container .review-name-date {
+    margin-left: 1rem;
+    font-weight: 600;
+}
+
+#reviews-container .review-comments {
+    font-style: italic;
+}
+
 .fav-icon {
     width: 27px;
     cursor: pointer;
