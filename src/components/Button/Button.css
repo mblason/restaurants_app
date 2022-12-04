@@ -1,0 +1,17 @@
+.btn-component {
+    display: flex;
+    justify-content: center;
+    border: none;
+    color: white;
+    width: 50%;
+    padding: 1rem;
+    margin-top: 1rem;
+    border-radius: 1.5rem;
+    background: #2e2e2e;
+    box-shadow:  5px 5px 10px #1c1c1c,
+                -5px -5px 10px #404040;
+}    
+
+.btn-component .loader-small {
+    width: 30px;
+}  

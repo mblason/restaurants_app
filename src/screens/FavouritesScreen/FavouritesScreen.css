@@ -29,6 +29,13 @@
     cursor: pointer;
 }
 
+.no-data-msg-container {
+    height: 80vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
 @media (max-width: 992px) {
 
     #favouritesScreen-container h2 {

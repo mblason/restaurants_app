@@ -6,6 +6,9 @@ export default function Input({
   error,
   onChange,
   label,
+  defaultValue,
+  multiple,
+  required
 }) {
 
   return (
@@ -22,6 +25,9 @@ export default function Input({
         placeholder={placeholder}
         onChange={onChange}
         name={name}
+        defaultValue={defaultValue}
+        multiple={multiple}
+        required={required}
       />
       {error && <div className="invalid-feedback">{error}</div>}
     </div>

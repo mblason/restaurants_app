@@ -2,6 +2,8 @@ import React, { useContext, useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import AuthContext from '../../contexts/AuthContext';
 import { getOneRestaurant } from '../../services/Restaurant.services';
+import Button from '../Button/Button';
+import Input from '../Input/Input';
 import './RestaurantForm.css';
 
 export default function RestaurantForm({
@@ -20,7 +22,7 @@ export default function RestaurantForm({
   useEffect(() => {
     if (restaurantId) {
       getOneRestaurant(restaurantId)
-        .then((resto) => {
+        .then((resto) => {          
           setRestaurantData(resto);
         })
         .catch((err) => navigate("/error"));
@@ -64,260 +66,159 @@ export default function RestaurantForm({
 
   return (
     <form onSubmit={handleOnSubmit} className="form-restaurant-create-edit">
-      <div>
-        <label htmlFor="name" className="form-label">
-          Name
-        </label>
-        <input
-          type="text"
-          defaultValue={restaurantData.name}
-          name="name"
-          id="name"
-          onChange={handleOnChange}
-          className={`form-control ${mongoErr?.name ? "is-invalid" : ""}`}
-        ></input>
-        {mongoErr?.name && (
-          <div className="error-feedback">{mongoErr?.name}</div>
-        )}
-      </div>
-      <div>
-        <label htmlFor="neighborhood" className="form-label">
-          Neighborhood
-        </label>
-        <input
-          type="text"
-          defaultValue={restaurantData.neighborhood}
-          name="neighborhood"
-          id="neighborhood"
-          onChange={handleOnChange}
-          className={`form-control ${
-            mongoErr?.neighborhood ? "is-invalid" : ""
-          }`}
-        ></input>
-        {mongoErr?.neighborhood && (
-          <div className="error-feedback">{mongoErr?.neighborhood}</div>
-        )}
-      </div>
-      <div>
-        <label htmlFor="address" className="form-label">
-          Address
-        </label>
-        <input
-          type="text"
-          defaultValue={restaurantData.address}
-          name="address"
-          id="address"
-          onChange={handleOnChange}
-          className={`form-control ${mongoErr?.address ? "is-invalid" : ""}`}
-        ></input>
-        {mongoErr?.address && (
-          <div className="error-feedback">{mongoErr?.address}</div>
-        )}
-      </div>
-      <div>
-        <label htmlFor="images" className="form-label">
-          Images
-        </label>
-        <input
-          type="file"
-          defaultValue={restaurantData.images}
-          name="images"
-          id="images"
-          onChange={handleOnChange}
-          className={`form-control ${mongoErr?.images ? "is-invalid" : ""}`}
-          multiple
-          required
-        ></input>
-        {mongoErr?.images && (
-          <div className="error-feedback">{mongoErr?.images}</div>
-        )}
-      </div>
-      <div>
-        <label htmlFor="cuisine_type" className="form-label">
-          Cuisine type
-        </label>
-        <input
-          type="text"
-          defaultValue={restaurantData.cuisine_type}
-          name="cuisine_type"
-          id="cuisine_type"
-          onChange={handleOnChange}
-          className={`form-control ${
-            mongoErr?.cuisine_type ? "is-invalid" : ""
-          }`}
-        ></input>
-        {mongoErr?.cuisine_type && (
-          <div className="error-feedback">{mongoErr?.cuisine_type}</div>
-        )}
-      </div>
+      <Input
+        placeholder="Ex: McDonald's"
+        id="name"
+        name="name"
+        error={mongoErr?.name && mongoErr.name}
+        onChange={handleOnChange}
+        label="Name"
+        defaultValue={restaurantData.name}
+      />
+
+      <Input
+        placeholder="Ex: Queens"
+        id="neighborhood"
+        name="neighborhood"
+        error={mongoErr?.neighborhood && mongoErr.neighborhood}
+        onChange={handleOnChange}
+        label="Neighborhood"
+        defaultValue={restaurantData.neighborhood}
+      />
+
+      <Input
+        placeholder="Ex: 5-48 49th Ave, New York"
+        id="address"
+        name="address"
+        error={mongoErr?.address && mongoErr.address}
+        onChange={handleOnChange}
+        label="Address"
+        defaultValue={restaurantData.address}
+      />
+
+      <Input
+        type="file"
+        id="images"
+        name="images"
+        error={mongoErr?.images && mongoErr.images}
+        onChange={handleOnChange}
+        label="Images"
+        defaultValue={restaurantData.images}
+        multiple={true}
+        required={true}
+      />
+
+      <Input
+        placeholder="Ex: American"
+        id="cuisine_type"
+        name="cuisine_type"
+        error={mongoErr?.cuisine_type && mongoErr.cuisine_type}
+        onChange={handleOnChange}
+        label="Cuisine type"
+        defaultValue={restaurantData.cuisine_type}
+      />
 
       <div>
         <label className="form-label">Opening times</label>
 
-        <div>
-          <label htmlFor="Monday" className="form-label">
-            Monday
-          </label>
+        <Input
+          placeholder="Ex: 10:00am - 23:00pm or Closed"
+          id="Monday"
+          name="Monday"
+          error={
+            Object.hasOwn(mongoErr, "operating_hours.Monday") &&
+            "This field is required."
+          }
+          onChange={handleOnChange}
+          label="Monday"
+          defaultValue={restaurantData?.operating_hours?.Monday}
+        />
 
-          <input
-            type="text"
-            defaultValue={restaurantData?.operating_hours?.Monday}
-            name="Monday"
-            id="Monday"
-            onChange={handleOnChange}
-            className={`form-control ${
-              Object.hasOwn(mongoErr, "operating_hours.Monday")
-                ? "is-invalid"
-                : ""
-            }`}
-          ></input>
-          {Object.hasOwn(mongoErr, "operating_hours.Monday") && (
-            <div className="error-feedback">This field is required.</div>
-          )}
-        </div>
+        <Input
+          placeholder="Ex: 10:00am - 23:00pm or Closed"
+          id="Tuesday"
+          name="Tuesday"
+          error={
+            Object.hasOwn(mongoErr, "operating_hours.Tuesday") &&
+            "This field is required."
+          }
+          onChange={handleOnChange}
+          label="Tuesday"
+          defaultValue={restaurantData?.operating_hours?.Tuesday}
+        />
 
-        <div>
-          <label htmlFor="Tuesday" className="form-label">
-            Tuesday
-          </label>
+        <Input
+          placeholder="Ex: 10:00am - 23:00pm or Closed"
+          id="Wednesday"
+          name="Wednesday"
+          error={
+            Object.hasOwn(mongoErr, "operating_hours.Wednesday") &&
+            "This field is required."
+          }
+          onChange={handleOnChange}
+          label="Wednesday"
+          defaultValue={restaurantData?.operating_hours?.Wednesday}
+        />
 
-          <input
-            type="text"
-            defaultValue={restaurantData?.operating_hours?.Tuesday}
-            name="Tuesday"
-            id="Tuesday"
-            onChange={handleOnChange}
-            className={`form-control ${
-              Object.hasOwn(mongoErr, "operating_hours.Tuesday")
-                ? "is-invalid"
-                : ""
-            }`}
-          ></input>
-          {Object.hasOwn(mongoErr, "operating_hours.Tuesday") && (
-            <div className="error-feedback">This field is required.</div>
-          )}
-        </div>
+        <Input
+          placeholder="Ex: 10:00am - 23:00pm or Closed"
+          id="Thursday"
+          name="Thursday"
+          error={
+            Object.hasOwn(mongoErr, "operating_hours.Thursday") &&
+            "This field is required."
+          }
+          onChange={handleOnChange}
+          label="Thursday"
+          defaultValue={restaurantData?.operating_hours?.Thursday}
+        />
 
-        <div>
-          <label htmlFor="Wednesday" className="form-label">
-            Wednesday
-          </label>
+        <Input
+          placeholder="Ex: 10:00am - 23:00pm or Closed"
+          id="Friday"
+          name="Friday"
+          error={
+            Object.hasOwn(mongoErr, "operating_hours.Friday") &&
+            "This field is required."
+          }
+          onChange={handleOnChange}
+          label="Friday"
+          defaultValue={restaurantData?.operating_hours?.Friday}
+        />
 
-          <input
-            type="text"
-            defaultValue={restaurantData?.operating_hours?.Wednesday}
-            name="Wednesday"
-            id="Wednesday"
-            onChange={handleOnChange}
-            className={`form-control ${
-              Object.hasOwn(mongoErr, "operating_hours.Wednesday")
-                ? "is-invalid"
-                : ""
-            }`}
-          ></input>
-          {Object.hasOwn(mongoErr, "operating_hours.Wednesday") && (
-            <div className="error-feedback">This field is required.</div>
-          )}
-        </div>
+        <Input
+          placeholder="Ex: 10:00am - 23:00pm or Closed"
+          id="Saturday"
+          name="Saturday"
+          error={
+            Object.hasOwn(mongoErr, "operating_hours.Saturday") &&
+            "This field is required."
+          }
+          onChange={handleOnChange}
+          label="Saturday"
+          defaultValue={restaurantData?.operating_hours?.Saturday}
+        />
 
-        <div>
-          <label htmlFor="Thursday" className="form-label">
-            Thursday
-          </label>
-
-          <input
-            type="text"
-            defaultValue={restaurantData?.operating_hours?.Thursday}
-            name="Thursday"
-            id="Thursday"
-            onChange={handleOnChange}
-            className={`form-control ${
-              Object.hasOwn(mongoErr, "operating_hours.Thursday")
-                ? "is-invalid"
-                : ""
-            }`}
-          ></input>
-          {Object.hasOwn(mongoErr, "operating_hours.Thursday") && (
-            <div className="error-feedback">This field is required.</div>
-          )}
-        </div>
-
-        <div>
-          <label htmlFor="Friday" className="form-label">
-            Friday
-          </label>
-
-          <input
-            type="text"
-            defaultValue={restaurantData?.operating_hours?.Friday}
-            name="Friday"
-            id="Friday"
-            onChange={handleOnChange}
-            className={`form-control ${
-              Object.hasOwn(mongoErr, "operating_hours.Friday")
-                ? "is-invalid"
-                : ""
-            }`}
-          ></input>
-          {Object.hasOwn(mongoErr, "operating_hours.Friday") && (
-            <div className="error-feedback">This field is required.</div>
-          )}
-        </div>
-
-        <div>
-          <label htmlFor="Saturday" className="form-label">
-            Saturday
-          </label>
-
-          <input
-            type="text"
-            defaultValue={restaurantData?.operating_hours?.Saturday}
-            name="Saturday"
-            id="Saturday"
-            onChange={handleOnChange}
-            className={`form-control ${
-              Object.hasOwn(mongoErr, "operating_hours.Saturday")
-                ? "is-invalid"
-                : ""
-            }`}
-          ></input>
-          {Object.hasOwn(mongoErr, "operating_hours.Saturday") && (
-            <div className="error-feedback">This field is required.</div>
-          )}
-        </div>
-
-        <div>
-          <label htmlFor="Sunday" className="form-label">
-            Sunday
-          </label>
-
-          <input
-            type="text"
-            defaultValue={restaurantData?.operating_hours?.Sunday}
-            name="Sunday"
-            id="Sunday"
-            onChange={handleOnChange}
-            className={`form-control ${
-              Object.hasOwn(mongoErr, "operating_hours.Sunday")
-                ? "is-invalid"
-                : ""
-            }`}
-          ></input>
-          {Object.hasOwn(mongoErr, "operating_hours.Sunday") && (
-            <div className="error-feedback">This field is required.</div>
-          )}
-        </div>
+        <Input
+          placeholder="Ex: 10:00am - 23:00pm or Closed"
+          id="Sunday"
+          name="Sunday"
+          error={
+            Object.hasOwn(mongoErr, "operating_hours.Sunday") &&
+            "This field is required."
+          }
+          onChange={handleOnChange}
+          label="Sunday"
+          defaultValue={restaurantData?.operating_hours?.Sunday}
+        />
       </div>
 
-      <button onClick={handleOnClick}>
-        {loading ? (
-          <div className="loader-small"></div>
-        ) : isCreate ? (
-          "CREATE"
-        ) : (
-          "EDIT"
-        )}
-      </button>
+      <Button
+        onClick={handleOnClick}
+        loading={loading}
+        {...(!loading && isCreate && { text: "Create" })}
+        {...(!loading && !isCreate && { text: "Edit" })}
+      ></Button>
     </form>
   );
 }

@@ -6,7 +6,7 @@ import errorImg from "../../assets/images/misc/error-img.png";
 export default function ErrorScreen() {
   return (
     <div
-      className="ErrorScreen"
+      className="errorScreen"
       style={{ backgroundImage: `url(${errorImg})`}}
     >
       <h2>OH DEAR!</h2>

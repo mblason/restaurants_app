@@ -10,14 +10,17 @@ import './FavouritesScreen.css';
 
 export default function FavouritesScreen() {
     const [favourites, setFavourites] = useState([]);
+    const [loading, setLoading] = useState('');
     const { currentUser } = useContext(AuthContext);
     const navigate = useNavigate();
 
     useEffect(() => {
         if (currentUser) {
+            setLoading(true);
             getAllFavs(currentUser.id)
             .then((favs) => {
                 setFavourites(favs);
+                setLoading(false);
             })
             .catch(err => navigate('/error'));
         }
@@ -35,21 +38,39 @@ export default function FavouritesScreen() {
     }
 
     return (
-        <div id="favouritesScreen-container">
-            <h2>Your favourites restaurants</h2>
-            <Navbar />
-            {favourites.length !== 0 && (
-                <div className="cards-container">
-                {favourites.map((fav) => (
-                <div className='card-wrapper'>
-                    <RestaurantCard key={fav.id} {...fav.restaurant} />
-                    <div className="actions-wrapper" onClick={handleDeleteFavourite}>
-                        <img id={`${fav.user},${fav.restaurant.id}`} src={trashIcon} alt="trashIcon" className="action-icon" />
-                    </div>
+      <div id="favouritesScreen-container">
+        <h2>Your favourites restaurants</h2>
+        <Navbar />
+        {loading && (
+          <div className="spinner-container">
+            <span className="loader"></span>
+          </div>
+        )}
+        {!loading && favourites.length > 0 && (
+          <div className="cards-container">
+            {favourites.map((fav) => (
+              <div className="card-wrapper">
+                <RestaurantCard key={fav.id} {...fav.restaurant} />
+                <div
+                  className="actions-wrapper"
+                  onClick={handleDeleteFavourite}
+                >
+                  <img
+                    id={`${fav.user},${fav.restaurant.id}`}
+                    src={trashIcon}
+                    alt="trashIcon"
+                    className="action-icon"
+                  />
                 </div>
-                ))}
-                </div>
-            )}
-        </div>
+              </div>
+            ))}
+          </div>
+        )}
+        {!loading && favourites.length === 0 && (
+          <div className="no-data-msg-container">
+            <h4>Nothing here yet...</h4>
+          </div>
+        )}
+      </div>
     );
 }

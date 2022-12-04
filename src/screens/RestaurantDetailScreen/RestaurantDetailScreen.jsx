@@ -17,14 +17,18 @@ import unfavIcon from "../../assets/images/restaurant/unfav-icon.png";
 export default function RestaurantDetailScreen() {
   const [restaurant, setRestaurant] = useState('');
   const [favImg, setFavImg] = useState(unfavIcon);
+  const [loading, setLoading] = useState('');
   const { id } = useParams();
   const navigate = useNavigate();
   const { currentUser } = useContext(AuthContext);
 
   useEffect(() => {
+    setLoading(true);
+
     getOneRestaurant(id)
       .then((resto) => {
-        setRestaurant(resto)
+        setRestaurant(resto);
+        setLoading(false);
       })
       .catch((err) => navigate("/error"));      
   }, [id, navigate]);
@@ -60,54 +64,70 @@ export default function RestaurantDetailScreen() {
   }
   
   return (
-    restaurant && (
-      <div id="restaurant-detail-container">
-        <Navbar />
-        <div
-          className="resto-img"
-          style={{ backgroundImage: `url(${restaurant.images[0]})` }}
-        ></div>
-        <div className="resto-info">
-          <header className='resto-header-wrapper'>
-            <h1>{restaurant.name}</h1>
-            <div className="fav-wrapper" onClick={handleFavourite}>
-              <img src={favImg} alt="favImg" className="fav-icon" />
-            </div>
-          </header>
-          <div className="resto-info-wrapper">
-            <img src={locationIcon} alt="locationIcon" className="icon-resto" />
-            <span>
-              {restaurant.neighborhood} - {restaurant.address}
-            </span>
-          </div>
-          <div className="resto-info-wrapper">
-            <img src={cuisineIcon} alt="cuisineIcon" className="icon-resto" />
-            <span>{restaurant.cuisine_type} cuisine</span>
-          </div>
-          <div className="resto-info-wrapper">
-            <img src={calendarIcon} alt="calendarIcon" className="icon-resto" />
-            <span>Opening times:</span>
-            <ul>
-              <li>Monday: {restaurant.operating_hours.Monday}</li>
-              <li>Tuesday: {restaurant.operating_hours.Tuesday}</li>
-              <li>Wednesday: {restaurant.operating_hours.Wednesday}</li>
-              <li>Thursday: {restaurant.operating_hours.Thursday}</li>
-              <li>Friday: {restaurant.operating_hours.Friday}</li>
-              <li>Saturday: {restaurant.operating_hours.Saturday}</li>
-              <li>Sunday: {restaurant.operating_hours.Sunday}</li>
-            </ul>
-          </div>
-          <div className="resto-info-wrapper">
-            <img
-              src={reviewWhiteIcon}
-              alt="reviewWhiteIcon"
-              className="icon-resto"
-            />
-            <span>Reviews:</span>
-            <div id="reviews-container">No reviews yet</div>
-          </div>
+    <div id="restaurant-detail-container">
+      <Navbar />
+      {loading && (
+        <div className="spinner-container">
+          <span className="loader"></span>
         </div>
-      </div>
-    )
+      )}
+
+      {!loading && restaurant && (
+        <>
+          <div
+            className="resto-img"
+            style={{ backgroundImage: `url(${restaurant.images[0]})` }}
+          ></div>
+          <div className="resto-info">
+            <header className="resto-header-wrapper">
+              <h1>{restaurant.name}</h1>
+              <div className="fav-wrapper" onClick={handleFavourite}>
+                <img src={favImg} alt="favImg" className="fav-icon" />
+              </div>
+            </header>
+            <div className="resto-info-wrapper">
+              <img
+                src={locationIcon}
+                alt="locationIcon"
+                className="icon-resto"
+              />
+              <span>
+                {restaurant.neighborhood} - {restaurant.address}
+              </span>
+            </div>
+            <div className="resto-info-wrapper">
+              <img src={cuisineIcon} alt="cuisineIcon" className="icon-resto" />
+              <span>{restaurant.cuisine_type} cuisine</span>
+            </div>
+            <div className="resto-info-wrapper">
+              <img
+                src={calendarIcon}
+                alt="calendarIcon"
+                className="icon-resto"
+              />
+              <span>Opening times:</span>
+              <ul>
+                <li>Monday: {restaurant?.operating_hours?.Monday}</li>
+                <li>Tuesday: {restaurant?.operating_hours?.Tuesday}</li>
+                <li>Wednesday: {restaurant?.operating_hours?.Wednesday}</li>
+                <li>Thursday: {restaurant?.operating_hours?.Thursday}</li>
+                <li>Friday: {restaurant?.operating_hours?.Friday}</li>
+                <li>Saturday: {restaurant?.operating_hours?.Saturday}</li>
+                <li>Sunday: {restaurant?.operating_hours?.Sunday}</li>
+              </ul>
+            </div>
+            <div className="resto-info-wrapper">
+              <img
+                src={reviewWhiteIcon}
+                alt="reviewWhiteIcon"
+                className="icon-resto"
+              />
+              <span>Reviews:</span>
+              <div id="reviews-container">No reviews yet</div>
+            </div>
+          </div>
+        </>
+      )}
+    </div>
   );
 }

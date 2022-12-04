@@ -11,17 +11,21 @@ import './MyRestaurantsScreen.css';
 
 export default function MyRestaurantsScreen() {
     const [myRestaurants, setMyRestaurants] = useState([]);
+    const [loading, setLoading] = useState('');
     const { currentUser } = useContext(AuthContext);
     const navigate = useNavigate();
 
     useEffect(() => {
-        if (currentUser) {
-            getUserRestaurants(currentUser.id)
-            .then((restaurants) => {
-                setMyRestaurants(restaurants)
-            })
-            .catch(err => navigate('/error'))
-        }
+      if (currentUser) {
+        setLoading(true);
+        
+        getUserRestaurants(currentUser.id)
+        .then((restaurants) => {
+            setMyRestaurants(restaurants);
+            setLoading(false);
+        })
+        .catch(err => navigate('/error'))
+      }
     }, [currentUser, navigate])
 
     const handleDeleteRestaurant = (e) => {
@@ -42,7 +46,12 @@ export default function MyRestaurantsScreen() {
           <span>Post</span>
         </Link>
         <Navbar />
-        {myRestaurants.length !== 0 && (
+        {loading && (
+          <div className="spinner-container">
+            <span className="loader"></span>
+          </div>
+        )}
+        {!loading && myRestaurants.length > 0 && (
           <div className="cards-container">
             {myRestaurants.map((resto) => (
               <div className="card-wrapper" key={resto.id}>
@@ -65,6 +74,11 @@ export default function MyRestaurantsScreen() {
                 </div>
               </div>
             ))}
+          </div>
+        )}
+        {!loading && myRestaurants.length === 0 && (
+          <div className="no-data-msg-container">
+            <h4>Nothing here yet...</h4>
           </div>
         )}
       </div>

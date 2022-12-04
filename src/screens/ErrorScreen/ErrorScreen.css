@@ -1,6 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Work+Sans:wght@900&display=swap');
 
-.ErrorScreen {
+.errorScreen {
     height: 100vh;
     padding-right: 1.5rem;
     display: flex;
@@ -12,30 +12,51 @@
     background-size: cover;
 }
 
-.ErrorScreen h2 {
+.errorScreen h2 {
     font-family: 'Work Sans', sans-serif;
     margin-top: 20vh;
     color: white;
     font-weight: 900;
     font-size: 4.8rem;
+    padding-right: 4rem;
 }
 
-.ErrorScreen p {
+.errorScreen p {
     color: white;
     font-size: 1.5rem;
+    width: 27rem;
+    padding-right: 4rem;
 }
 
-.ErrorScreen a {
+.errorScreen a {
     color: white;
     font-size: 1.5rem;
     text-decoration: none;
+    width: 27rem;
+    padding-right: 4rem;
 }
 
-.ErrorScreen span {
+.errorScreen span {
     color: white;
     font-size: 1.5rem;
     text-decoration: underline;
 }
+
 .ErrorScreen span:hover {
     color: #402a50;
+}
+
+@media (max-width: 992px) {
+
+    .errorScreen {
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: flex-end;
+    }
+
+    .errorScreen h2, .errorScreen p, .errorScreen a {
+        width: 90vw;
+        padding-right: 0;
+    }
 }

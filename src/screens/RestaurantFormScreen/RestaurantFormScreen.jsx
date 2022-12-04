@@ -21,7 +21,6 @@ export default function RestaurantFormScreen() {
   }, [location])
 
   const handleOnSubmit = (data) => {
-
     if (isCreate) {
       createRestaurant(data)
         .then((resto) => {
