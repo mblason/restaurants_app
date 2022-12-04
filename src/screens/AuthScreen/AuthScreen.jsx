@@ -51,7 +51,7 @@ export default function HomeScreen() {
   }
 
   const handleAuthGoogle = () => {
-    window.location.assign(`https://fine-ox-blazer.cyclic.app/api/login/google`);
+    window.location.assign(`http://fine-ox-blazer.cyclic.app/api/login/google`);
   };
 
   const handleRegisterOrLogin = () => {
