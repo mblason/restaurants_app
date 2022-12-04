@@ -1,21 +1,19 @@
-import React, { useContext, useEffect, useState } from "react";
+import React, { useContext, useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import AuthContext from "../../contexts/AuthContext";
 import { logout } from "../../store/AccessTokenStore";
 import "./Navbar.css";
 
 /* IMAGES */
-import navIcon from "../../assets/images/navbar/nav-icon.png";
 import closeBtnNav from "../../assets/images/navbar/close-nav-icon.png";
-import homeIcon from "../../assets/images/navbar/home-icon.png";
-import myRestoIcon from "../../assets/images/navbar/my-resto-icon.png";
 import favIcon from "../../assets/images/navbar/fav-icon.png";
+import homeIcon from "../../assets/images/navbar/home-icon.png";
 import logoutIcon from "../../assets/images/navbar/logout-icon.png";
+import myRestoIcon from "../../assets/images/navbar/my-resto-icon.png";
+import navIcon from "../../assets/images/navbar/nav-icon.png";
 
 export default function Navbar() {
   const [isOpened, setIsOpened] = useState(false);
-  let location = useLocation();
-  const { currentUser } = useContext(AuthContext);
 
   const userLogOut = () => {
     logout();
